@@ -17,19 +17,9 @@ class CreateBooksTable extends Migration
             $table->id(); // Primary key
             $table->string('title');
             $table->string('author');
-            $table->integer('publication_year'); // Add the publication_year column
-            $table->text('description')->nullable(); // Optional field
-            $table->timestamps(); // Adds created_at and updated_at columns
+            $table->integer('publication_year'); 
+            $table->text('description')->nullable(); 
+            $table->timestamps(); 
         });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('books');
     }
 }

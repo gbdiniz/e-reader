@@ -22,10 +22,11 @@ class BookFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence, // Generates a random title
-            'author' => $this->faker->name,    // Generates a random author name
-            'publication_year' => $this->faker->year, // Generates a random year
-            'description' => $this->faker->paragraph, // Generates a random description
+            // Generates a random title,author,publication_year and description
+            'title' => $this->faker->sentence, 
+            'author' => $this->faker->name,    
+            'publication_year' => $this->faker->year, 
+            'description' => $this->faker->paragraph, 
         ];
     }
 }
