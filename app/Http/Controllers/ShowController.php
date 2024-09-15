@@ -35,8 +35,11 @@ class ShowController extends Controller
             'coverImage' => $coverImageFileName, 
             'title' => $book->title,
             'author' => $book->author,
-            'genre' => $book->genre
+            'genre' => $book->genre,
+            'bookId' => $book->id
         ]);
     }
+
+
 }
 

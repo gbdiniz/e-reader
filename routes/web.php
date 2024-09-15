@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\ShowController;
+use App\Http\Controllers\BookController;
 
 Route::get('/', function () {
     return view('Home');
@@ -18,3 +19,7 @@ Route::get('/home', [ShowController::class, 'showAllBooks'])->name('home');
 
 // Route to show a specific book
 Route::get('/read', [ShowController::class, 'readBook'])->name('readBook');
+
+Route::get('/book/{id}/edit', [BookController::class, 'edit'])->name('edit');
+Route::post('/book/{id}/update', [BookController::class, 'update'])->name('updateBook');
+Route::delete('/book/{id}/delete', [BookController::class, 'destroy'])->name('deleteBook');

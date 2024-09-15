@@ -7,13 +7,13 @@
 
 .book-image {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 0.625rem; /* 10px */
+    border-radius: 0.625rem; 
 }
 
 .book-link:hover .book-image {
     transform: scale(0.95);
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* 0 4px 8px */
-    border-radius: 0.625rem; /* Ensure corners remain rounded */
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); 
+    border-radius: 0.625rem; 
 }
 
 body {
@@ -27,8 +27,8 @@ body {
 
 .book-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr)); /* 200px */
-    gap: 1.25rem; /* 20px */
+    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr)); 
+    gap: 2.5rem;
     justify-items: center;
 }
 
@@ -37,12 +37,4 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-}
-
-.book-grid .col:nth-child(odd) {
-    transform: translateY(5rem); /* 5em */
-}
-
-.book-grid .col:nth-child(even) {
-    transform: translateY(15rem); /* 15em */
 }

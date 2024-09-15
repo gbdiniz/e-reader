@@ -43,6 +43,8 @@ body {
     border-radius: 0.8rem;
     padding: 0.5rem 1rem;
     transition: background-color 0.3s ease;
+    font-family: EB Garamond;
+    font-weight: 500;
 }
 
 .nav-link.nav-button:hover {

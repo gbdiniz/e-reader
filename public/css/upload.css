@@ -57,16 +57,20 @@
 }
 
 .btn-primary {
-    background-color: black;
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-weight: bold;
     grid-column: span 2;
     padding: 0.6rem 1.3rem;
     font-size: 1rem;
     display: block;
     margin: 0 auto;
+    border: none;
     border-radius: 1rem;
+    width: 20rem;
+    height: 5rem;
 }
 .btn-primary:hover {
-    background-color: #746f6f;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
 }
