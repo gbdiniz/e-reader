@@ -24,11 +24,12 @@
 </header>
 <body>
     <div class="container mt-5">
-        <h1>All Covers</h1>
+        <h1>All Books</h1>
         <div class="book-grid">
             @foreach($books as $book)
                 <a href="{{ route('readBook', ['title' => $book->title]) }}">
-                    <img src="{{ asset('storage/uploads/' . basename($book->filePath)) }}" alt="{{ $book->title }}">
+                    <!-- Use $book->coverImage for each book -->
+                    <img src="{{ asset('storage/uploads/covers/' . basename($book->coverImage)) }}" alt="{{ $book->title }}">
                 </a>
             @endforeach
         </div>

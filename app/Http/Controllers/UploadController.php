@@ -19,6 +19,8 @@ class UploadController extends Controller
             'pdf' => 'required|mimes:pdf|max:2048',
             'cover_image' => 'required|mimes:jpeg,png|max:2048',
             'title' => 'required|string|max:255',
+            'author' => 'nullable|string|max:255',
+            'genre' => 'nullable|string|max:255',
         ]);
 
         $book = new Book;

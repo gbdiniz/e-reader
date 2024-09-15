@@ -23,7 +23,7 @@ return new class extends Migration
 
             $table->string('filePath');
 
-            $table->string('CoverImage');
+            $table->string('coverImage');
 
             $table->timestamps();
         });

@@ -9,14 +9,13 @@ class ShowController extends Controller
 {
     public function showAllBooks()
     {
-        // Fetch all books
         $books = Book::all();
         return view('Home', compact('books'));
     }
 
     public function readBook(Request $request)
     {
-        $title = $request->query('title'); // Get the title from the query string
+        $title = $request->query('title');
 
         $book = null;
 
@@ -29,10 +28,14 @@ class ShowController extends Controller
             return abort(404, 'Book not found');
         }
 
+        $pdfFileName = basename($book->filePath);
+        $coverImageFileName = basename($book->coverImage);
+
         return view('Read', [
-            'pdfPath' => asset('storage/uploads/pdfs/' . basename($book->filePath)),
-            'coverImage' => asset('storage/uploads/covers/' . basename($book->coverImage)),
+            'pdfPath' => $pdfFileName, 
+            'coverImage' => $coverImageFileName, 
             'title' => $book->title
         ]);
     }
 }
+
