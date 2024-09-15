@@ -18,18 +18,21 @@ class ShowController extends Controller
     {
         $title = $request->query('title'); // Get the title from the query string
 
-        $fileName = null;
+        $book = null;
 
         if ($title) {
             // Find the Book by title
-            $Book = Book::where('title', $title)->first();
-
-            if ($Book) {
-                $filePath = public_path($Book->filePath); // Access the correct filePath column
-                $fileName = basename($filePath); // Extract the file name
-            }
+            $book = Book::where('title', $title)->first();
         }
 
-        return view('Read', compact('fileName', 'title'));
+        if (!$book) {
+            return abort(404, 'Book not found');
+        }
+
+        return view('Read', [
+            'pdfPath' => asset('storage/uploads/pdfs/' . basename($book->filePath)),
+            'coverImage' => asset('storage/uploads/covers/' . basename($book->coverImage)),
+            'title' => $book->title
+        ]);
     }
 }

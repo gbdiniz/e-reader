@@ -23,6 +23,8 @@ return new class extends Migration
 
             $table->string('filePath');
 
+            $table->string('CoverImage');
+
             $table->timestamps();
         });
     }

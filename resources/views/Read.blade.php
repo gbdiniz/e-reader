@@ -22,27 +22,17 @@
         <h1>{{ $title }}</h1>
         <div id="imageContainer">
             @if(isset($fileName))
-                <!-- Correctly display the selected image -->
                 <img src="{{ asset('storage/uploads/' . $fileName) }}" alt="{{ $title }}">
             @else
                 <p>No image selected.</p>
             @endif
         </div>
     </div>
-    <div id="pspdfkit" style="height: 100vh"></div>
-    <script src="{{ asset('assets/pspdfkit.js') }}"></script>
-
-    <script>
-			PSPDFKit.load({
-				container: "#pspdfkit",
-				document: "{{ asset('storage/uploads/' . $fileName) }}", // Add the path to your document here.
-			})
-			.then(function(instance) {
-				console.log("PSPDFKit loaded", instance);
-			})
-			.catch(function(error) {
-				console.error(error.message);
-			});
-		</script>
+        <div class="container mt-5">
+        <h1>{{ $title }}</h1>
+        <div id="pdfContainer">
+            <iframe src="{{ asset('storage/uploads/' . $fileName) }}" width="100%" style="height:100%; border: none;"></iframe>
+        </div>
+    </div>
 </body>
 @endsection
