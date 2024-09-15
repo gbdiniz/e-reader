@@ -20,7 +20,6 @@ class ShowController extends Controller
         $book = null;
 
         if ($title) {
-            // Find the Book by title
             $book = Book::where('title', $title)->first();
         }
 
@@ -34,7 +33,9 @@ class ShowController extends Controller
         return view('Read', [
             'pdfPath' => $pdfFileName, 
             'coverImage' => $coverImageFileName, 
-            'title' => $book->title
+            'title' => $book->title,
+            'author' => $book->author,
+            'genre' => $book->genre
         ]);
     }
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             //create books table
             $table->id();
 
-            $table->string('title');
+            $table->string('title')->unique();
 
             $table->string('author') ->nullable();
 

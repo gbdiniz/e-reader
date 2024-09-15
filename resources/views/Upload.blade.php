@@ -1,6 +1,10 @@
 @extends('templates.master')
 @section('title', 'Book Upload')
 @section('content')
+<header>
+    <link rel="stylesheet" href="/css/upload.css">
+</header>
+<body>
     <div class="container mt-5">
         <form action="{{ route('bookUpload') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -18,41 +22,41 @@
                     </ul>
                 </div>
             @endif
-             <div class="form-group mb-3">
+            <div class="form-group mb-3">
                 <label for="title">Title</label>
                 <input type="text" name="title" id="title" class="form-control" required>
             </div>
             <div class="form-group mb-3">
                 <label for="author">Author</label>
-                <input type="text" name="title" id="title" class="form-control" required>
+                <input type="text" name="author" id="author" class="form-control" required>
             </div>
             <div class="form-group mb-3">
                 <label for="genre">Genre</label>
-                <input type="text" name="title" id="title" class="form-control" required>
+                <input type="text" name="genre" id="genre" class="form-control" required>
+            </div> 
+            <div class="custom-file mb-3">
+                <input type="file" name="cover_image" id="cover_image" class="custom-file-input" onchange="updateFileName(this)">
+                <label for="cover_image" class="custom-file-label">
+                    {{ old('cover_image') ? old('cover_image') : 'Select Cover Image' }}
+                </label>
             </div>
             <div class="custom-file mb-3">
-                <input type="file" name="pdf" id="pdf" class="custom-file-input">
-                <label for="pdf" class="custom-file-label">Select PDF</label>
+                <input type="file" name="pdf" id="pdf" class="custom-file-input" onchange="updateFileName(this)">
+                <label for="pdf" class="custom-file-label">
+                    {{ old('pdf') ? old('pdf') : 'Select PDF' }}
+                </label>
             </div>
-            <div class="custom-file mb-3">
-                <input type="file" name="cover_image" id="cover_image" class="custom-file-input">
-                <label for="cover_image" class="custom-file-label">Select Cover Image</label>
-            </div>
-            
+           
             <button type="submit" name="submit" class="btn btn-primary">Upload Book</button>
         </form>
-        @if (Session::has('success'))
-            <h1 class="mt-5">Uploaded Book Details</h1>
-            <div>
-                @if(Session::has('book'))
-                    <h2>Uploaded Book</h2>
-                    <img src="{{ asset('storage/uploads/pdfs/' . Session::get('book')) }}" alt="Uploaded Book" class="img-fluid">
-                @endif
-                @if(Session::has('cover_image'))
-                    <h2>Cover Image</h2>
-                    <img src="{{ asset('storage/uploads/covers/' . Session::get('cover_image')) }}" alt="Cover Image" class="img-fluid">
-                @endif
-            </div>
-        @endif
     </div>
+
+    <script>
+        function updateFileName(input) {
+            var fileName = input.files[0].name;
+            var label = input.nextElementSibling;
+            label.innerText = fileName;
+        }
+    </script>
+</body>
 @endsection

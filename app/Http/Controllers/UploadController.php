@@ -38,6 +38,8 @@ class UploadController extends Controller
         }
 
         $book->title = $req->input('title');
+        $book->author = $req->input('author');
+        $book->genre = $req->input('genre');
         $book->save();
 
         return back()
