@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('templates.master')
+@section('title', 'Show Book')
+@section('content')
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Book Upload</title>
 </head>
 <body>
@@ -33,8 +32,6 @@
             </div>
             <button type="submit" name="submit" class="btn btn-primary">Upload Book</button>
         </form>
-
-        <!-- Display uploaded book (if available) -->
         @if (Session::has('book'))
             <h1 class="mt-5">Book Contents</h1>
             <div>
@@ -44,3 +41,4 @@
     </div>
 </body>
 </html>
+@endsection('content')

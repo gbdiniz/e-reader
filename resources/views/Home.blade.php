@@ -1,40 +1,37 @@
 @extends('templates.master')
-@section('title', 'HOME')
+@section('title', 'Home')
 @section('styles')
     <style>
-        ul li {
-            display: inline;
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        .book-grid img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: opacity 0.3s;
+        }
+        .book-grid img:hover {
+            opacity: 0.8;
         }
     </style>
 @endsection
 @section('content')
 <header>
-<nav class="navbar navbar-expand-lg bg-light">
-        <div class="col-auto" style="margin:5px">
-            <h1>Libre</h1>
-        </div>
-</nav>
 </header>
 <body>
-    <div class="dropdown">
-        <form action="{{ route('showBooks') }}" method="GET">
-            <select name="title" onchange="this.form.submit()">
-                @foreach($bookName as $name)
-                    <option value="{{ $name }}" {{ $name == request()->query('title') ? 'selected' : '' }}>{{ $name }}</option>
-                @endforeach
-            </select>
-        </form>
-    </div>
-
-    <h1>Your image:</h1>
-    <div id="imageContainer">
-        @csrf
-        @if(isset($fileName))
-            <!-- Corrected to use public storage path directly -->
-            <img src="{{ asset('storage/uploads/' . $fileName) }}" alt="{{ $fileName }}">
-            @else
-            <p>No image selected.</p>
-        @endif
+    <div class="container mt-5">
+        <h1>All Covers</h1>
+        <div class="book-grid">
+            @foreach($books as $book)
+                <a href="{{ route('readBook', ['title' => $book->title]) }}">
+                    <img src="{{ asset('storage/uploads/' . basename($book->filePath)) }}" alt="{{ $book->title }}">
+                </a>
+            @endforeach
+        </div>
     </div>
 </body>
 @endsection

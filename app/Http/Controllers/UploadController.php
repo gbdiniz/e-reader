@@ -13,9 +13,8 @@ class UploadController extends Controller
     } 
     
     public function bookUpload(Request $req){
-        // Increase file size validation if necessary
         $req->validate([
-            'book' => 'required|mimes:jpeg,png,pdf|max:2048', // Adjust size as needed
+            'book' => 'required|mimes:jpeg,png,pdf|max:2048', 
         ]);
 
         $book = new Book;

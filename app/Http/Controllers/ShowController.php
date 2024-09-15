@@ -7,7 +7,14 @@ use App\Models\Book;
 
 class ShowController extends Controller
 {
-    public function showBooks(Request $request)
+    public function showAllBooks()
+    {
+        // Fetch all books
+        $books = Book::all();
+        return view('Home', compact('books'));
+    }
+
+    public function readBook(Request $request)
     {
         $title = $request->query('title'); // Get the title from the query string
 
@@ -23,9 +30,6 @@ class ShowController extends Controller
             }
         }
 
-        // Fetch all book titles to populate the dropdown
-        $bookName = Book::pluck('title')->toArray();
-
-        return view('Home', compact('fileName', 'bookName'));
+        return view('Read', compact('fileName', 'title'));
     }
 }
