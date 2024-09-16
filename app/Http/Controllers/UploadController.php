@@ -16,7 +16,7 @@ class UploadController extends Controller
     public function bookUpload(Request $req)
     {
         $req->validate([
-            'pdf' => 'required|mimes:pdf|max:2048',
+            'pdf' => 'required|mimes:pdf|max:20480',
             'cover_image' => 'required|mimes:jpeg,png|max:2048',
             'title' => 'required|string|max:255',
             'author' => 'nullable|string|max:255',
@@ -42,10 +42,9 @@ class UploadController extends Controller
         $book->genre = $req->input('genre');
         $book->save();
 
-        return back()
-            ->with('success', 'Your Book and Cover Image have been uploaded.')
-            ->with('book', $pdfFileName)
-            ->with('cover_image', $coverImageName);
+        return redirect()->route('home')
+            ->with('success', 'Your Book and Cover Image have been uploaded.');
+            
     }
 }
 
