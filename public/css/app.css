@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 .yuji-syuku-regular {
     font-family: "Yuji Syuku", serif;
     font-weight: 400;
@@ -56,4 +61,29 @@ body {
 .nav-link.upload-button:focus, .nav-link.upload-button:active {
     outline: none;
     box-shadow: none;
+}
+
+.deleteButton .naormalButton {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    padding: 0.6rem 1.3rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 1rem;
+    transition: background-color 0.3s ease, width 0.3s ease;
+    width: 20vw; 
+    max-width: 15rem;
+    min-width: 10rem;
+    height: 3rem; 
+}
+.normalButton:hover {
+    background-color: #000000;
+    color: #ffffff;
+
+}
+.deleteButton:hover {
+    background-color: #ff0000;
+    color: #ffffff;
+
 }

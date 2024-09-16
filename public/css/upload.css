@@ -21,7 +21,8 @@
 
 .form-group label {
     margin-right: 0.5rem;
-    font-size: 1rem;
+    font-size: 1.3rem;
+    font-weight: 500;
     width: 30%;
     text-align: right;
 }
@@ -46,10 +47,13 @@
     height: 10rem;
     padding: 1.3rem;
     text-align: center;
+    align-content: center;
     border: 0.17rem dashed #ccc;
     border-radius: 0.3rem;
     cursor: pointer;
-    margin: 0 auto;
+    margin: 2rem auto;
+    font-size: 1.3rem;
+    font-weight: 500;
 }
 
 .custom-file input[type="file"] {
@@ -59,12 +63,11 @@
 .btn-primary {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
-    font-weight: bold;
+    font-weight: 500;
     grid-column: span 2;
-    padding: 0.6rem 1.3rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     display: block;
-    margin: 0 auto;
+    margin: 4rem auto;
     border: none;
     border-radius: 1rem;
     width: 20rem;
