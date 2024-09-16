@@ -21,7 +21,7 @@
 
 <div id="pdfContainer" style="margin:10rem;">
 <h1>Preview Book</h1>
-    <iframe src="{{ asset('storage/uploads/pdfs/' . $pdfPath) }}" style="height:100em" width="100%"></iframe>
+    <iframe src="{{ asset('storage/uploads/pdfs/' . $pdfPath) }}" class="iFrame" width="100%"></iframe>
 </div>
 </body>
 @endsection

@@ -1,3 +1,11 @@
+.iFrame {
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    border-radius: 1rem;
+    border: 1rem solid;
+}
+
 .headInfo {
     display: flex;
     align-items: center;
