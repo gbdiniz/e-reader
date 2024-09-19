@@ -15,12 +15,6 @@ Route::post('upload', [UploadController::class, 'BookUpload'])->name('bookUpload
 
 Route::get('/home', [ShowController::class, 'showAllBooks'])->name('home');
 
-Route::get('/read', [ShowController::class, 'readBook'])->name('readBook');
-
-Route::get('/book/{id}/edit', [BookController::class, 'edit'])->name('edit');
-Route::post('/book/{id}/update', [BookController::class, 'update'])->name('updateBook');
-Route::delete('/book/{id}/delete', [BookController::class, 'destroy'])->name('deleteBook');
-
 
 require __DIR__.'/auth.php';
 
@@ -30,7 +24,16 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
+
+    Route::get('/read', [ShowController::class, 'readBook'])->name('readBook');
+    Route::get('/book/{id}/edit', [BookController::class, 'edit'])->name('edit');
+    Route::post('/book/{id}/update', [BookController::class, 'update'])->name('updateBook');
+    Route::delete('/book/{id}/delete', [BookController::class, 'destroy'])->name('deleteBook');
+
+
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
