@@ -6,9 +6,7 @@ use App\Http\Controllers\ShowController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
 
-Route::get('/', function () {
-    return view('Home');
-})->name('home');
+Route::get('/', [ShowController::class, 'showAllBooks'])->name('home');
 
 Route::get('upload', [UploadController::class, 'createForm'])->name('upload');
 Route::post('upload', [UploadController::class, 'BookUpload'])->name('bookUpload');
